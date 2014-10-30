@@ -11,6 +11,10 @@ copy the secret and generated pin to the clipboard with one command::
     $ wari hotp get alfredo
     -> secret with generated pin has been copied to the clipboard
 
+If only PINs are needed, those can also be specified::
+
+    $ wari hotp get alfredo pin
+    -> pin copied to the clipboard
 
 To generate an HOTP key::
 
@@ -36,9 +40,19 @@ We can also update information, such as secret or key::
     -> stored tokens and secret for user: alfredo
 
     $ wari hotp update alfredo key
-    -> Type key:
+    -> Type key: 8ee378386648afbd62989553934eb69d7db9980a
     -> stored tokens and secret for user: alfredo
 
     $ wari hotp update alfredo step
-    -> Type step:
+    -> Type step: 2
     -> stored tokens and secret for user: alfredo
+
+    $ wari hotp update alfredo b32
+    -> Type b32: R3RXQODGJCX32YUYSVJZGTVWTV63TGAK
+    -> stored tokens and secret for user: alfredo
+
+Removing a user::
+
+    $ wari hotp remove alfredo
+
+
