@@ -56,3 +56,8 @@ Removing a user::
     $ wari hotp remove alfredo
 
 
+Storage
+-------
+``wari`` stores its data in the current user's home directory in a hidden
+binary file: ``.waridb``. It is a sqlite3 database that contains all stored
+information.
