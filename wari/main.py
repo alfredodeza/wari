@@ -48,6 +48,13 @@ totp                 Subcommand to interact with time based tokens (TOTP)
         parser.mapper = self.mapper
         if len(argv) <= 1:
             return parser.print_help()
+
+        # create the connection and set the collection
+        conn = wari.db.get_connection()
+        wari.db.connection = conn
+        wari.db.collection = conn['wari']
+
         parser.dispatch()
         parser.catches_help()
         parser.catches_version()
+        conn.close()
