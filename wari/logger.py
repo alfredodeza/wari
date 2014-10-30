@@ -63,8 +63,10 @@ class LogMessage(object):
     def level_color(self):
         return _level_colors.get(self.level_name, 'info')
 
-    def line(self):
+    def line(self, newline=True):
         msg = self.message.rstrip('\n')
+        if not newline:
+            return "%s %s" % (self.header(), msg)
         return "%s %s\n" % (self.header(), msg)
 
     def write(self):
